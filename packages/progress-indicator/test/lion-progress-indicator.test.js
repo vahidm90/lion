@@ -6,13 +6,18 @@ import '@lion/progress-indicator/define';
 describe('lion-progress-indicator', () => {
   describe('Accessibility', () => {
     it('adds a label', async () => {
-      const el = await fixture(html` <lion-progress-indicator></lion-progress-indicator> `);
-      expect(el.getAttribute('aria-label')).to.equal('Loading');
+      const el = await fixture(
+        html` <lion-progress-indicator value="50"></lion-progress-indicator> `,
+      );
+      expect(el.getAttribute('aria-label')).not.to.be.undefined;
+      expect(el.getAttribute('aria-valuemin')).to.be.eq('0');
+      expect(el.getAttribute('aria-valuemax')).to.be.eq('100');
+      expect(el.getAttribute('aria-valuenow')).to.be.eq('50');
     });
 
     it('sets the right role', async () => {
       const el = await fixture(html` <lion-progress-indicator></lion-progress-indicator> `);
-      expect(el.getAttribute('role')).to.equal('status');
+      expect(el.getAttribute('role')).to.equal('progressbar');
     });
 
     it('sets aria-live to "polite"', async () => {

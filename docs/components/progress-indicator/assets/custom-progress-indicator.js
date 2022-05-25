@@ -55,6 +55,11 @@ export class CustomProgressIndicator extends LionProgressIndicator {
       </svg>
     `;
   }
+
+  connectedCallback() {
+    super.connectedCallback();
+    this.setAttribute('role', 'status');
+  }
 }
 
 customElements.define('custom-progress-indicator', CustomProgressIndicator);

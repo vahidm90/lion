@@ -2,11 +2,20 @@
 
 A web component that implements accessibility requirements for progress indicators.
 
-```html
-<lion-progress-indicator></lion-progress-indicator>
+```js script
+import { html } from '@mdjs/mdjs-preview';
+import '@lion/progress-indicator/define';
 ```
 
-Note: You don't see a live demo here as it would be empty, since there is no styling. Check out the [examples](./examples.md) if you want to see a possible implementation.
+```js preview-story
+export const main = () => {
+  return html`
+    <div style="padding:12px;">
+      <lion-progress-indicator name="Interest rate" value="50"></lion-progress-indicator>
+    </div>
+  `;
+};
+```
 
 ## Features
 
@@ -15,6 +24,13 @@ This component is designed to be extended in order to add visuals.
 - Accessibility compliant
 - Localized "Loading" label
 - Implementation independent of visuals
+- `value`: progress value
+- `reverse`: fill the progress from RTL (default LTR)
+- `threshold`: specify the milestone
+- `--bar-color`: css custom property to set the bar color
+- `--placeholder-color`: css custom property to set the bar's placeholder color
+- `--separator-color`: css custom property to set the marker bar color
+- `--separator-threshold-color`: css custom property to set the marker color after the given threshold is crossed
 
 ## Installation
 
