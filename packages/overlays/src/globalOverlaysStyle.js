@@ -54,6 +54,7 @@ export const globalOverlaysStyle = css`
     justify-content: flex-end;
     align-items: flex-end;
   }
+
   .global-overlays__overlay-container--left {
     justify-content: flex-start;
     align-items: center;
@@ -68,7 +69,7 @@ export const globalOverlaysStyle = css`
     width: 100%;
   }
 
-  .global-overlays .global-overlays__backdrop {
+  .global-overlays__backdrop {
     content: '';
     position: fixed;
     top: 0;
@@ -81,15 +82,15 @@ export const globalOverlaysStyle = css`
     display: none;
   }
 
-  .global-overlays .global-overlays__backdrop--visible {
+  .global-overlays__backdrop--visible {
     display: block;
   }
 
-  .global-overlays .global-overlays__backdrop--animation-in {
+  .global-overlays__backdrop--animation-in {
     animation: global-overlays-backdrop-fade-in 300ms;
   }
 
-  .global-overlays .global-overlays__backdrop--animation-out {
+  .global-overlays__backdrop--animation-out {
     animation: global-overlays-backdrop-fade-out 300ms;
     opacity: 0;
   }

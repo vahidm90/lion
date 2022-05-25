@@ -196,9 +196,12 @@ export const OverlayMixinImplementation = superclass =>
     }
 
     get _overlayBackdropNode() {
-      return /** @type {HTMLElement | undefined} */ (
-        Array.from(this.children).find(child => child.slot === 'backdrop')
-      );
+      if (!this.__cachedOverlayBackdropNode) {
+        this.__cachedOverlayBackdropNode = /** @type {HTMLElement | undefined} */ (
+          Array.from(this.children).find(child => child.slot === 'backdrop')
+        );
+      }
+      return this.__cachedOverlayBackdropNode;
     }
 
     get _overlayContentNode() {
