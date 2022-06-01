@@ -140,13 +140,19 @@ export class LionProgressIndicator extends LocalizeMixin(LitElement) {
   connectedCallback() {
     super.connectedCallback();
     const uid = uuid();
-    this.setAttribute('role', 'progressbar');
+    if (this.getAttribute('variant') === 'indeterminate') {
+      this.setAttribute('role', 'status');
+      this.setAttribute('aria-label', 'loading');
+    } else {
+      this.setAttribute('variant', 'determinate');
+      this.setAttribute('role', 'progressbar');
+      this.setAttribute('aria-valuenow', this.value || '0');
+      this.setAttribute('aria-valuemin', this.min || '0');
+      this.setAttribute('aria-valuemax', this.max || '100');
+      this.setAttribute('aria-label', this.getAttribute('name') || `progress-bar-${uid}`);
+    }
+    this.setAttribute('id', `progress-indicator-${uid}`);
     this.setAttribute('aria-live', 'polite');
-    this.setAttribute('id', `progress-bar-${uid}`);
-    this.setAttribute('aria-label', this.getAttribute('name') || `progress-bar-${uid}`);
-    this.setAttribute('aria-valuenow', this.value || '0');
-    this.setAttribute('aria-valuemin', this.min || '0');
-    this.setAttribute('aria-valuemax', this.max || '100');
   }
 
   /**

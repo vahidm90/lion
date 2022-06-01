@@ -191,5 +191,6 @@ class CustomProgressIndicator extends LionProgressIndicator {
 ### Custom Indicator Result
 
 ```js preview-story
-export const main = () => html` <custom-progress-indicator></custom-progress-indicator> `;
+export const main = () =>
+  html` <custom-progress-indicator variant="indeterminate"></custom-progress-indicator> `;
 ```

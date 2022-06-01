@@ -24,6 +24,7 @@ This component is designed to be extended in order to add visuals.
 - Accessibility compliant
 - Localized "Loading" label
 - Implementation independent of visuals
+- `variant`: accepts either `determinate`, i.e. default, or `indeterminate`
 - `value`: progress value
 - `reverse`: fill the progress from RTL (default LTR)
 - `threshold`: specify the milestone
