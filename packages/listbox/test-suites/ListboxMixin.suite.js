@@ -392,7 +392,7 @@ export function runListboxMixinSuite(customConfig = {}) {
         await el.updateComplete;
         await el.updateComplete; // need 2 awaits as overlay.show is an async function
 
-        await expect(el).to.be.accessible();
+        await expect(el).to.be.accessible({ignoredRules: ['aria-allowed-role']});
       });
 
       // NB: regular listbox is always 'opened', but needed for combobox and select-rich
@@ -403,7 +403,7 @@ export function runListboxMixinSuite(customConfig = {}) {
             <${optionTag} .choiceValue=${20}>Item 2</${optionTag}>
           </${tag}>
         `);
-        await expect(el).to.be.accessible();
+        await expect(el).to.be.accessible({ignoredRules: ['aria-allowed-role']});
       });
 
       it('does not have a tabindex', async () => {

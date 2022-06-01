@@ -149,7 +149,7 @@ describe('lion-select-rich', () => {
       expect(_invokerNode.hasAttribute('single-option')).to.be.true;
     });
 
-    it('updates the invoker when the selected element is the same but the modelValue was updated asynchronously', async () => {
+    it.only('updates the invoker when the selected element is the same but the modelValue was updated asynchronously', async () => {
       const tag = defineCE(
         class LionCustomOption extends LionOption {
           render() {
@@ -178,6 +178,7 @@ describe('lion-select-rich', () => {
       const firstChild = /** @type {HTMLElement} */ (
         /** @type {ShadowRoot} */ (_invokerNode.shadowRoot).firstElementChild
       );
+      console.log(_invokerNode.shadowRoot);
       expect(firstChild.textContent).to.equal('10');
 
       firstOption.modelValue = { value: 30, checked: true };

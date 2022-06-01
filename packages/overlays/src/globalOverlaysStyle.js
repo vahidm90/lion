@@ -6,10 +6,6 @@ export const globalOverlaysStyle = css`
     z-index: 200;
   }
 
-  .global-overlays__overlay {
-    pointer-events: auto;
-  }
-
   .global-overlays__overlay-container {
     display: flex;
     position: fixed;
@@ -69,6 +65,11 @@ export const globalOverlaysStyle = css`
     width: 100%;
   }
 
+  ::slotted(.global-overlays__overlay), 
+  .global-overlays__overlay {
+    pointer-events: auto;
+  }
+
   .global-overlays__backdrop {
     content: '';
     position: fixed;
@@ -88,6 +89,7 @@ export const globalOverlaysStyle = css`
 
   .global-overlays__backdrop--animation-in {
     animation: global-overlays-backdrop-fade-in 300ms;
+    opacity: 0.3;
   }
 
   .global-overlays__backdrop--animation-out {
@@ -106,7 +108,7 @@ export const globalOverlaysStyle = css`
       opacity: 0.3;
     }
   }
-
+  
   body > *[inert] {
     -webkit-user-select: none;
     -moz-user-select: none;
